@@ -15,10 +15,9 @@ var server = http.createServer(function(req, res) {
     
     res.writeHead(404, {"Content-Type": "text/html"});
     res.end("Not found");
-    
 });
 
-server.listen(process.env.C9_PORT);
+server.listen(process.env.PORT);
 var io = require("socket.io").listen(server);
 io.set("log level", 2);
 
@@ -57,3 +56,5 @@ function error(res, err) {
     res.end("Internal server error: " + err);
     console.log(err);
 }
+
+console.log(process.env.PORT)
